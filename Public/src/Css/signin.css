@@ -1,0 +1,83 @@
+/* login.css */
+
+/* Alert container */
+.alert-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+  }
+  
+  /* Main container */
+  .main2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+  }
+  
+  /* Right container */
+  .rtcontainter2 {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title */
+  .title2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Form */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Input fields */
+  .inputfields {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Submit button */
+  .btnn2 {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btnn2:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Toggle text */
+  .toggle2 {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Link */
+  .toggle2 a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .toggle2 a:hover {
+    text-decoration: underline;
+  }
+  

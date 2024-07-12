@@ -1,0 +1,76 @@
+/* home.css */
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    /* border: none; */
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    color: #0056b3;
+  }
+  
+  /* Form */
+  form {
+    margin-top: 20px;
+  }
+  
+  input[type="file"] {
+    margin-bottom: 10px;
+    background-color: rgb(208, 208, 208);
+    width: 400px;
+    border-radius: 10px;
+    margin-left: 100px;
+  }
+  
+  input[type="file"]::-webkit-file-upload-button {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #0056b3;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #2D7EDD;
+    color: white;
+    border: none;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    /* margin-left: 250px !important; */
+    
+  }
+
+  .mainbtns{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(155, 155, 155);
+    height: 70px;
+    button{
+        height: 40px;
+        margin-top: 14px;
+    }
+  }
+.uploadbtn{
+  position: relative;
+  bottom: 150px !important;
+  margin-left: 300px ;
+}
+.queryinp{
+  width: 500px !important;
+  margin-left: 550px;
+}
+.analyzebtn{
+  margin-left: 750px !important;
+}

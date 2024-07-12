@@ -1,0 +1,11 @@
+.mainnavcompo{
+    /* background-color: pink; */
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px 0px 20px;
+}
+.searchbar{
+    width: 500px;
+}
