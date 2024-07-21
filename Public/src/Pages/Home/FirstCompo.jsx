@@ -16,7 +16,7 @@ function FirstCompo() {
           <h1>Streamline Your Resume</h1>
           <h1 className="firsth1">Collection Process</h1>
           <p>Automatically filter resumes based on job descriptions</p>
-          <a href="#services" className="button-link">Get started</a>
+          <a href="#services" className="button-link"><button>Get started</button></a>
         </div>
       </div>
       <hr />

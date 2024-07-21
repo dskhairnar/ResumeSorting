@@ -7,6 +7,7 @@ import {
 } from "../../Utils/apiroutes";
 import { useNavigate } from "react-router-dom";
 import "../../Css/Home.css";
+import { Spinner } from "flowbite-react";
 
 function Services() {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ function Services() {
   const [isResumeUpload, setIsResumeUpload] = useState(false);
   const [isJDUpload, setIsJDUpload] = useState(false);
   const [jdWordsCount, setJdWordsCount] = useState(false);
+  const [analyzeLoader, setAnalyzeLoader] = useState(false);
+  const [uploadLoader, setUploadLoader] = useState(false);
 
   // JD upload
   const handleJDUpload = async (event) => {
@@ -40,6 +43,7 @@ function Services() {
 
   // Upload Resumes
   const handleResumeUpload = async (event) => {
+    setUploadLoader(true);
     event.preventDefault();
     const resumeFormData = new FormData();
     const resumeFiles = event.target.elements.resumes.files;
@@ -58,6 +62,7 @@ function Services() {
       console.log(response);
       setResponse(response.data.msg);
       setIsResumeUpload(true);
+      setUploadLoader(false);
     } catch (error) {
       setError("Error uploading files: " + error.message);
     }
@@ -66,6 +71,7 @@ function Services() {
   // Analyze resumes
   const handleSubmit = async (event) => {
     if (isResumeUpload && isJDUpload) {
+      setAnalyzeLoader(true);
       event.preventDefault();
       try {
         const response = await axios.post(getResumeRoute, {
@@ -77,9 +83,7 @@ function Services() {
         const matchedResumesCount = data.matchedResumesCount;
         const matchedResumes = data.matchedResumes;
 
-        // const parsedSorted = JSON.stringify(data);
-        // localStorage.setItem("SortedArray", parsedSorted);
-        console.log("jd wirds count is", jdWordsCount);
+        setAnalyzeLoader(false);
         navigate("/sort", {
           state: {
             matchedResumes,
@@ -115,7 +119,10 @@ function Services() {
   return (
     <>
       <div className="homeOuter">
-        <div className="alertmsg" style={{display: "flex", justifyContent: "center" }}>
+        <div
+          className="alertmsg"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
           {response && (
             <div
               className="alert alert-success"
@@ -149,13 +156,21 @@ function Services() {
           <form onSubmit={handleResumeUpload}>
             <input type="file" name="resumes" accept=".pdf" multiple />
             <button className="Uploadbtn" type="submit">
-              Upload
+              {uploadLoader ? (
+                <Spinner aria-label="Default status example" />
+              ) : (
+                <h6>Upload</h6>
+              )}
             </button>
           </form>
         </div>
       </div>
       <button className="analyzebtn" onClick={handleSubmit}>
-        Analyze
+        {analyzeLoader ? (
+          <Spinner aria-label="Default status example" />
+        ) : (
+          <h1>Analyze</h1>
+        )}
       </button>
       <hr />
     </>
