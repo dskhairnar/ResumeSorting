@@ -1,103 +1,63 @@
-/* .midcontainer{
-    background-color: pink;
-    width: 600px;
-    height: 350px;
-    margin-top: 200px;
-    margin-left: 450px;
+.midcontainer{
+  height: 65vh;
+  width: 55vw;
+  background: linear-gradient(to bottom, #c9e2ff, #2D7EDD);
+}
+.outer{
+  background: linear-gradient(to bottom, #2D7EDD, #FFFFFF);
+}
+.main{
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin-left: 22%;
+}
+.firstrow h1{
+  font-size: 25px;
+  font-weight: bold;
+}
+.firstrow{
+  margin-top: 5%;
+  margin-left: 3%;
+}
+.secondrow{
+  background-color: #8fbbf0;
+  width: 50%;
+  border-radius: 3%;
+  height: 55%;
+  margin-left:7%;
+  margin-top: 4%;
+}
+.secondrow input{
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  /* border-color: rgb(255, 255, 255); */
+  background-color: #8fbbf0;
+  margin-bottom: 0px;
+  margin-left: 3%;
+  
+}
+input::after{
+  outline: none !important;
+  border: none;
+}
+.secondrow button{
+  margin-top: 15%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  height: 35px;
+  font-weight: bold;
+}
+.addimg img{
+  height: 456px;
+  position: absolute;
+  top: 280px;
+  left: 1074px;
 }
 .inout-container{
-    input{
-        width: 400px;
-        margin-left: 50px;
-
-    }
+  margin-top: 14px;
 }
-.upperInp {
-    border-radius: 10px 10px 0px 0px !important;
-    margin-top: 50px;
+.inout-container ::placeholder{
+  color: rgba(0, 0, 0, 0.47)
 }
-.lowerInp {
-    border-radius: 0px 0px 10px 10px !important;
-}
-.btnn{
-    border: 1px solid black;
-    background-color: rgba(47, 121, 200, 0.651);
-    height: 40px;
-    width: 170px;
-    border-radius: 10px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-    margin-top: 30px;
-    margin-left: 50px;
-} */
-/* signup.css */
-
-/* Main container */
-.main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f2f2f2;
-  }
-  
-  /* Form container */
-  .midcontainer {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    width: 400px;
-  }
-  
-  /* Create account text */
-  .midcontainer p {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  /* Toggle text */
-  .toggle {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  
-  /* Input container */
-  .inout-container {
-    margin-bottom: 20px;
-  }
-  
-  /* Input fields */
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  /* Submit button */
-  .btnn {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btnn:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Upper input field */
-  .upperInp {
-    border-radius: 5px 5px 0 0;
-  }
-  
-  /* Lower input field */
-  .lowerInp {
-    border-radius: 0 0 5px 5px;
-  }
-  

@@ -2,49 +2,53 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 function Sort() {
-  // Retrieve sorted data from localStorage
-  const sortedData = JSON.parse(localStorage.getItem("SortedArray"));
+  // Retrieve sorted data from location state
   const location = useLocation();
-  const { totalQueryWordCount, totalResumeCount, matchedResumesCount } =
-    location.state;
+  const {
+    matchedResumes,
+    totalResumeCount,
+    matchedResumesCount,
+    jdWordsCount,
+  } = location.state || { matchedResumes: [] };
 
   return (
-    <div style={{ maxHeight: "800px", overflowY: "scroll" }}>
-      {/* Map over matchedResumes array and render PDF files */}
-      <h1 style={{ fontSize: "40px", marginBottom: "20px", marginLeft:"540px" }}>
-        Sorted Resumes for skill set
+    <div style={{ maxHeight: "800px", overflowY: "scroll", paddingBottom:'200px' }}>
+      <h1
+        style={{ fontSize: "40px", textAlign:'center', marginTop:'30px', fontWeight:'bold'}}
+      >
+        Resumes Matched to Your Job Description
       </h1>
 
-      {sortedData &&
-        sortedData.status &&
-        sortedData.matchedResumes.length > 0 &&
-        sortedData.matchedResumes.map((resume, index) => (
-          <div key={index} style={{ display: "flex", flexDirection: "row" }}>
-            <div style={{marginLeft:"500px"}}>
-              <h2
+      {matchedResumes.length > 0 ? (
+        matchedResumes.map((resume, index) => (
+          <div key={index}>
+            <div style={{ marginTop: "40px", display:'flex', flexDirection:'column' }}>
+              <div
+                className="pdfdata"
                 style={{
-                  margin: "10px",
-                  fontSize: "20px",
-                  border: "3px solid black",
-                  width: "200px",
-                  padding: "5px",
-                  backgroundColor: "#92C4ED",
-                  borderRadius: "10px",
-                  marginLeft: "100px",
+                  display: "flex",
+                  justifyContent: "space-around",
+                  marginRight: "300px",
+                  marginLeft: "300px",
                 }}
               >
-                {resume.resume.filename}
-              </h2>
-              <h2>
-                {(resume.matchingWordsCount / totalQueryWordCount) * 100}%
-                accuracy
-              </h2>
+                <h2>{resume.resume.filename}</h2>
+                <h2>
+                  <span style={{fontWeight:'bold'}}>
+                    {((resume.matchingWordsCount / jdWordsCount) * 100).toFixed(
+                      2
+                    )}% &nbsp;
+                  </span>
+                   accuracy
+                </h2>
+              </div>
               <object
                 data={`data:application/pdf;base64,${resume.resume.pdfString}`}
                 type="application/pdf"
                 width="600"
                 height="400"
                 style={{
+                  marginLeft:'30%',
                   border: "1px solid black",
                   borderRadius: "10px",
                   marginTop: "10px",
@@ -54,7 +58,10 @@ function Sort() {
               </object>
             </div>
           </div>
-        ))}
+        ))
+      ) : (
+        <p>No matched resumes found.</p>
+      )}
     </div>
   );
 }

@@ -3,8 +3,10 @@ import { registerRoute } from "../Utils/apiroutes";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../Css/signup.css";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { Button } from "flowbite-react";
+import image from "../assets/signupimg.png";
+import logo from "../assets/logo.png";
+import { HiInformationCircle } from "react-icons/hi";
+import { Alert } from "flowbite-react";
 
 function Signup() {
   const navigate = useNavigate();
@@ -14,6 +16,7 @@ function Signup() {
     password: "",
     confirmpassword: "",
   });
+  const [errorAlert, setErrorAlert] = useState();
 
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
@@ -32,7 +35,7 @@ function Signup() {
 
         const data = response.data;
         if (data && data.status === false) {
-          alert(data.msg);
+          setErrorAlert(data.msg);
         }
         if (data && data.status === true) {
           localStorage.setItem("current-user", JSON.stringify(data.newUser));
@@ -49,19 +52,28 @@ function Signup() {
     }
   }, []);
 
+  useEffect(() => {
+    if (errorAlert !== "") {
+      const timer = setTimeout(() => {
+        setErrorAlert("");
+      }, 2500);
+      return () => clearTimeout(timer);
+    }
+  }, [errorAlert]);
+
   const handleValidation = () => {
     const { username, email, password, confirmpassword } = values;
-    if (password !== confirmpassword) {
-      alert("Passoward and confirm password should be same");
-      return false;
-    } else if (username.length < 3) {
-      alert("Username should be greater than 3 characters");
-      return false;
-    } else if (password.length < 7) {
-      alert("Password should be equal or greater than 8 characters");
+    if (username.length < 3) {
+      setErrorAlert("Username should be greater than 3 characters");
       return false;
     } else if (email == "") {
-      alert("Email is required");
+      setErrorAlert("Email is required");
+      return false;
+    } else if (password.length < 7) {
+      setErrorAlert("Password should be equal or greater than 8 characters");
+      return false;
+    } else if (password !== confirmpassword) {
+      setErrorAlert("Passoward and confirm password should be same");
       return false;
     } else {
       return true;
@@ -69,55 +81,85 @@ function Signup() {
   };
 
   return (
-    <>
-      <div className="main" style={{ display: "flex", flexDirection: "row" }}>
-        <div className="midcontainer">
-          <p>Create your account</p>
-          <span className="toggle">
-            Already have an account? <Link to="/signin">Login</Link>
-          </span>
-          <form className="flex flex-col" onSubmit={handleSubmit}>
-            <div className="inout-container">
-              <input
-                className="upperInp"
-                type="text"
-                placeholder="Username"
-                name="username"
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className="inout-container">
-              <input
-                type="email"
-                placeholder="Email id"
-                name="email"
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className="inout-container">
-              <input
-                type="password"
-                placeholder="password"
-                name="password"
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <div className="inout-container">
-              <input
-                type="password"
-                className="lowerInp"
-                placeholder="Confirm Password"
-                name="confirmpassword"
-                onChange={(e) => handleChange(e)}
-              />
-            </div>
-            <button className="btnn" type="submit">
-              Create account
-            </button>
-          </form>
+    <div className="outer">
+      {errorAlert && (
+        <Alert
+          color="failure"
+          icon={HiInformationCircle}
+          style={{ width: "70%", marginLeft: "15%" }}
+        >
+          <span className="font-medium">{errorAlert}</span>
+        </Alert>
+      )}
+      <div className="main">
+        <div className="addlogo">
+          <img style={{height:'153px', position:'relative', right:'330px'}} src={logo} alt="" />
+        </div>
+        <div
+          className="midcontainer"
+          style={{ display: "flex", flexDirection: "column" }}
+        >
+          <div className="firstrow">
+            <h1>Create new Account</h1>
+            <span className="toggle">
+              Have an account?{" "}
+              <Link to="/signin" style={{ color: "blue" }}>
+                Login
+              </Link>
+            </span>
+          </div>
+          <div className="secondrow">
+            <form className="flex flex-col" onSubmit={handleSubmit}>
+              <div className="inout-container">
+                <input
+                  className="upperInp"
+                  type="text"
+                  placeholder="Username"
+                  name="username"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div className="inout-container">
+                <input
+                  type="email"
+                  placeholder="Email id"
+                  name="email"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div className="inout-container">
+                <input
+                  type="password"
+                  placeholder="password"
+                  name="password"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div className="inout-container">
+                <input
+                  type="password"
+                  className="lowerInp"
+                  placeholder="Confirm Password"
+                  name="confirmpassword"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+
+              <button
+                className="btnn"
+                type="submit"
+                style={{ backgroundColor: "#2D7EDD", width: "10vw" }}
+              >
+                Create account
+              </button>
+            </form>
+          </div>
+          <div className="addimg">
+            <img src={image} alt="" />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

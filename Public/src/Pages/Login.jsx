@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { loginRoute } from "../Utils/apiroutes";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-// import OAuth from "../Components/OAuth";
-// import { faUser, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { Button } from "flowbite-react";
-import '../Css/signin.css'
+import "../Css/signin.css";
+import { HiInformationCircle } from "react-icons/hi";
+import { Alert } from "flowbite-react";
+import image from "../assets/signinimg.png";
+import logo from "../assets/logo.png";
 
 function Login() {
   const navigate = useNavigate();
@@ -67,72 +67,79 @@ function Login() {
   }, []);
 
   useEffect(() => {
-    let timerId;
-    if (errorAlert) {
-      timerId = setTimeout(() => {
+    if (errorAlert !== "") {
+      const timer = setTimeout(() => {
         setErrorAlert("");
-      }, 3000);
+      }, 2500);
+      return () => clearTimeout(timer);
     }
-    return () => clearTimeout(timerId);
   }, [errorAlert]);
 
   return (
-    <>
+    <div className="outer2">
       {errorAlert && (
-        <div
-          className="alert-container alert container alert-danger alert-dismissible fade show"
-          role="alert"
+        <Alert
+          color="failure"
+          icon={HiInformationCircle}
+          style={{ width: "70%", marginLeft: "15%" }}
         >
-          {errorAlert}
-          <button
-            type="button"
-            className="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
-        </div>
+          <span className="font-medium">{errorAlert}</span>
+        </Alert>
       )}
       <div className="main2">
-        <div className="rtcontainter2">
-          <h1 className="title2">Login</h1>
-          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-            <div>
-              <input
-                className="inputfields"
-                type="text"
-                placeholder="Enter Username"
-                name="username"
-                id="username"
-                onChange={(e) => handleChange(e)}
-              />
-              {/* <FontAwesomeIcon icon={faUser} className="usericon2 input-icon" /> */}
-            </div>
-            <div>
-              <input
-                className="inputfields"
-                type="password"
-                placeholder="Enter password"
-                name="password"
-                id="password"
-                onChange={(e) => handleChange(e)}
-              />
-              {/* <FontAwesomeIcon icon={faLock} className="lockicon2 input-icon" /> */}
-            </div>
-            <button
-              className="btnn2"
-              type="submit"
-            >
-              Login
-            </button>
-            {/* <p className="or2">or</p>
-            <OAuth /> */}
-            <span className="toggle2">
-              Don't have an account? <Link to="/signup">SignUp</Link>
+        <div className="addlogo2">
+          <img style={{height:'153px', position:'relative', right:'330px'}} src={logo} alt="" />
+        </div>
+        <div
+          className="midcontainer2"
+          style={{ display: "flex", flexDirection: "column" }}
+        >
+          <div className="firstrow2">
+            <h1>Login</h1>
+            <span className="toggle">
+              Don't have an account?{" "}
+              <Link to="/signup" style={{ color: "blue" }}>
+                SignUp
+              </Link>
             </span>
-          </form>
+          </div>
+          <div className="secondrow2">
+            <form className="flex flex-col" onSubmit={handleSubmit}>
+              <div className="input-container">
+                <input
+                  className="inputfields"
+                  type="text"
+                  placeholder="Enter Username"
+                  name="username"
+                  id="username"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <div className="input-container">
+                <input
+                  className="inputfields"
+                  type="password"
+                  placeholder="Enter password"
+                  name="password"
+                  id="password"
+                  onChange={(e) => handleChange(e)}
+                />
+              </div>
+              <button
+                className="btnn"
+                type="submit"
+                style={{ backgroundColor: "#2D7EDD", width: "8vw", marginLeft: '30px', }}
+              >
+                Login
+              </button>
+            </form>
+          </div>
+          <div className="addimg2">
+            <img src={image} alt="" />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
