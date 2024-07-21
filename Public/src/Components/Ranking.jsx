@@ -3,8 +3,6 @@ import React from "react";
 function Ranking() {
   const sortedData = JSON.parse(localStorage.getItem("SortedArray"));
   
-  
-
   return (
     <div style={{ maxHeight: "800px", overflowY: "scroll" }}>
       <h1 style={{ fontSize: "40px", marginBottom: "20px" }}>

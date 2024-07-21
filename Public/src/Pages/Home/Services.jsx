@@ -47,7 +47,6 @@ function Services() {
     event.preventDefault();
     const resumeFormData = new FormData();
     const resumeFiles = event.target.elements.resumes.files;
-    console.log("Selected files:", resumeFiles);
 
     for (let i = 0; i < resumeFiles.length; i++) {
       resumeFormData.append("resumes", resumeFiles[i]);
@@ -59,7 +58,7 @@ function Services() {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log(response);
+      
       setResponse(response.data.msg);
       setIsResumeUpload(true);
       setUploadLoader(false);

@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import Sort from "./Components/Sort";
-import Filter from "./Components/Filter";
 import HomePage from "./Pages/HomePage";
 
 export default function App() {

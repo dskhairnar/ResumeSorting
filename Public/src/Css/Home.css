@@ -134,7 +134,7 @@ body{
 .scrollable {
   height: 100vh;
   overflow-y: auto;
-  overflow-x: hidden; /* Ensure no horizontal overflow */
+  overflow-x: hidden;
 }
 
 /* Contact */
@@ -156,7 +156,7 @@ body{
 }
 
 .section {
-  padding-top: 60px; /* Adjust this value based on your navbar height */
-  margin-top: -60px; /* This negative margin offsets the padding */
+  padding-top: 60px; 
+  margin-top: -60px; 
 }
 
