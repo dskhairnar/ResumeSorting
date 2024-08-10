@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: my-frontend-service
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    startCommand: npx serve -s build
+    branch: main
+    plan: free
+
+  - type: web
+    name: my-backend-service
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    branch: main
+    plan: free
