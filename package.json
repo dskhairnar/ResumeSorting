@@ -1,12 +1,21 @@
 {
-  "devDependencies": {
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3"
+  "name": "Resume_Sorting",
+  "version": "1.0.0",
+  "scripts": {
+    "dev:frontend": "cd public && npm install && npm run dev",
+    "dev:backend": "cd service && npm install && node index.js",
+    "start": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "build": "cd public && npm install && npm run build && cd ../service && npm install"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "flowbite-react": "^0.7.6",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "concurrently": "^7.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
   }
 }
