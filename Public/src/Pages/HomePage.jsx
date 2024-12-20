@@ -6,16 +6,16 @@ import Contact from "./Home/Contact";
 import Services from "./Home/Services";
 import "../Css/Home.css";
 import { useNavigate } from "react-router-dom";
+import Footer from "../Components/Footer";
 
 function HomePage() {
   const navigate = useNavigate();
-
   const currentUser = localStorage.getItem("current-user");
 
   useEffect(() => {
     if (!currentUser) navigate("/signin");
-  }, []);
-  
+  }, []); 
+
   return (
     <>
       <NavbarCompo />
@@ -32,7 +32,11 @@ function HomePage() {
         <section id="contact" className="section">
           <Contact />
         </section>
+        <section>
+          <Footer />
+        </section>
       </div>
+      
     </>
   );
 }

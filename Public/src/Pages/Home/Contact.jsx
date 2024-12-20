@@ -1,4 +1,3 @@
-import React from 'react'
 import img from '../../assets/contactimg.png'
 import '../../Css/Home.css'
 
@@ -8,10 +7,7 @@ function Contact() {
       <div className="contactimg">
         <img src={img} alt="" />
       </div>
-      <div className="contacttext">
-        <a href="">Contact us</a>
-        <a href="">Privacy Policy</a>
-      </div>
+      
     </div>
   )
 }

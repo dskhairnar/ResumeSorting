@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser");
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/resumeSorting");
+  await mongoose.connect("mongodb://localhost:27017");
   console.log("Successfully connected to db");
 }
 

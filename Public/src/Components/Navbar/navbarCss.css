@@ -1,4 +1,4 @@
-/* src/App.css */
+/* General body styling */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -9,45 +9,49 @@ body {
 .navbar {
   position: fixed;
   top: 0;
-  height: 10%;
   width: 100%;
-  background-color: rgba(45, 126, 221);
-  padding: 1em;
+  height: 70px; /* Fixed height for better alignment */
+  background-color: #2D7EDD; /* Clean blue color */
+  padding: 0; 
   z-index: 1000;
-  overflow-x: auto; /* Make the navbar scrollable horizontally */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex; 
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: center; /* Center the links horizontally */
+  align-items: center; /* Center the links vertically */
   margin: 0;
   padding: 0;
 }
 
 .navbar ul li {
-  display: inline;
+  display: inline-block; /* Keeps list items in a row */
+  margin: 0 20px; /* Space between links */
 }
 
 .navbar ul li a {
-  color: black;
-  text-decoration: none;
+  color: #ffffff; /* White text color */
+  text-decoration: none; 
+  font-weight: bold;
+  font-size: 1rem;
   padding: 0.5em 1em;
   display: block;
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
+  border-radius: 8px; /* Rounded corners for hover effect */
 }
 
 .navbar ul li a:hover {
-  background-color: rgb(159, 185, 239);;
-  border-radius: 5px;
+  background-color: #1B5B9E; /* Slightly darker blue */
+  color: #ffffff; /* Ensure text remains white */
+  transform: scale(1.1); /* Slight scaling effect */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Box shadow on hover */
 }
 
 .section {
-  margin-top: 60px;
-  /* Adjust to prevent content from hiding behind the navbar */
+  margin-top: 80px; /* Push content down to prevent overlap with the navbar */
 }
-
-/* #home { background-color: #f1f1f1; }
-#services { background-color: #e2e2e2; }
-#dashboard { background-color: #d3d3d3; }
-#contact { background-color: #c4c4c4; }
-#about { background-color: #b5b5b5; } */

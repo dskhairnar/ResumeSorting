@@ -1,5 +1,3 @@
-import React from "react";
-
 function Ranking() {
   const sortedData = JSON.parse(localStorage.getItem("SortedArray"));
   

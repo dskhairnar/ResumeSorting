@@ -1,5 +1,3 @@
-import React from "react";
-
 function Card({ resume }) {
   return (
     <>
@@ -11,9 +9,7 @@ function Card({ resume }) {
         />
         <div className="card-body">
           <h5 className="card-title">{resume.filename}</h5>
-          <p className="card-text">
-            Uploaded on: {}
-          </p>
+          <p className="card-text">Uploaded on: {}</p>
         </div>
       </div>
     </>

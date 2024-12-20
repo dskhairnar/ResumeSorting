@@ -1,8 +1,6 @@
-import React from "react";
 import { useLocation } from "react-router-dom";
 
 function Sort() {
-  // Retrieve sorted data from location state
   const location = useLocation();
   const {
     matchedResumes,
