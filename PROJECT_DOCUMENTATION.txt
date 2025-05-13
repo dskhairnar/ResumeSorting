@@ -1,0 +1,274 @@
+Resume Scanner Application Documentation
+=====================================
+
+Project Overview
+---------------
+The Resume Scanner is a full-stack web application designed to streamline the resume screening process. It uses AI-powered algorithms to analyze and rank resumes based on their relevance to a given job description. The application helps HR professionals and recruiters save time by automatically identifying the most suitable candidates.
+
+Key Features
+-----------
+1. Resume Upload and Processing
+   - Multiple PDF resume upload support
+   - Automatic text extraction from PDFs
+   - File validation and error handling
+   - Support for up to 10 simultaneous uploads
+
+2. Job Description Analysis
+   - PDF job description upload
+   - Text extraction and processing
+   - Keyword identification
+   - Word count analysis
+
+3. Resume Matching and Ranking
+   - AI-powered matching algorithm
+   - Score calculation based on relevance
+   - Sorting and filtering capabilities
+   - Visual representation of match scores
+
+4. PDF Preview and Management
+   - Interactive PDF viewer
+   - Page navigation
+   - Resume list with quick access
+   - Download capabilities
+
+Technical Architecture
+--------------------
+1. Frontend (React.js)
+   - Components:
+     * Navbar: Main navigation with smooth scrolling
+     * Services: Resume upload and analysis interface
+     * Sort: Results display and PDF viewer
+     * Dashboard: Statistics and metrics
+     * Contact: User communication form
+
+   - Key Technologies:
+     * React Router for navigation
+     * Axios for API calls
+     * React-PDF for PDF rendering
+     * Flowbite for UI components
+     * CSS modules for styling
+
+2. Backend (Node.js/Express)
+   - Controllers:
+     * resumeController: Handles file uploads and analysis
+     * authController: Manages user authentication
+
+   - Models:
+     * Resume: MongoDB schema for resume data
+     * User: MongoDB schema for user data
+
+   - Routes:
+     * /api/resume/upload: Resume file upload
+     * /api/resume/analyze: Resume analysis
+     * /api/resume/jd: Job description upload
+
+3. Database (MongoDB)
+   - Collections:
+     * Resumes: Stores resume data and content
+     * Users: Stores user information
+   - Indexes for optimized querying
+   - Text search capabilities
+
+4. File Processing
+   - Multer for file uploads
+   - PDF-Parse for text extraction
+   - Natural language processing
+   - Stopword removal
+   - Tokenization
+
+Security Features
+---------------
+1. File Upload Security
+   - File type validation
+   - Size limits (5MB per file)
+   - Sanitized filenames
+   - Secure file storage
+
+2. Authentication
+   - JWT-based authentication
+   - Secure password storage
+   - Protected routes
+   - Session management
+
+3. Data Protection
+   - Input validation
+   - Error handling
+   - Secure file deletion
+   - MongoDB security
+
+Performance Optimizations
+-----------------------
+1. Database
+   - Indexed fields for faster queries
+   - Efficient schema design
+   - Optimized queries
+
+2. File Processing
+   - Asynchronous operations
+   - Batch processing
+   - Memory management
+   - Temporary file cleanup
+
+3. Frontend
+   - Lazy loading
+   - Optimized PDF rendering
+   - Efficient state management
+   - Responsive design
+
+Installation and Setup
+--------------------
+1. Prerequisites
+   - Node.js (v14 or higher)
+   - MongoDB
+   - npm or yarn
+
+2. Installation Steps
+   a. Clone the repository
+   b. Install dependencies:
+      - Frontend: cd Public && npm install
+      - Backend: cd Server && npm install
+   c. Configure environment variables
+   d. Start MongoDB service
+   e. Run the application:
+      - Backend: npm start
+      - Frontend: npm start
+
+3. Environment Variables
+   - MONGODB_URI: MongoDB connection string
+   - JWT_SECRET: JWT encryption key
+   - PORT: Server port number
+
+Usage Guide
+----------
+1. Uploading Resumes
+   - Click "Upload Resumes" button
+   - Select PDF files (max 10)
+   - Wait for processing
+   - View upload confirmation
+
+2. Job Description Analysis
+   - Upload job description PDF
+   - System extracts and processes text
+   - View word count and keywords
+
+3. Resume Analysis
+   - Click "Analyze Resumes" button
+   - System matches resumes against JD
+   - View ranked results
+   - Filter and sort as needed
+
+4. Viewing Results
+   - Browse matched resumes
+   - View PDF previews
+   - Check match scores
+   - Download resumes
+
+Error Handling
+-------------
+1. File Upload Errors
+   - Invalid file type
+   - File size exceeded
+   - Processing failures
+   - Storage issues
+
+2. Analysis Errors
+   - Invalid PDF content
+   - Processing timeouts
+   - Memory limitations
+   - Database errors
+
+3. User Feedback
+   - Clear error messages
+   - Loading indicators
+   - Success notifications
+   - Validation feedback
+
+Maintenance and Support
+---------------------
+1. Regular Updates
+   - Security patches
+   - Feature updates
+   - Bug fixes
+   - Performance improvements
+
+2. Monitoring
+   - Error logging
+   - Performance metrics
+   - User activity
+   - System health
+
+3. Backup
+   - Database backups
+   - File storage backups
+   - Configuration backups
+   - User data protection
+
+Future Enhancements
+-----------------
+1. Planned Features
+   - Advanced AI matching
+   - Custom scoring rules
+   - Batch processing
+   - API integration
+
+2. Performance Improvements
+   - Caching system
+   - Load balancing
+   - CDN integration
+   - Query optimization
+
+3. User Experience
+   - Enhanced UI/UX
+   - Mobile optimization
+   - Accessibility improvements
+   - Custom themes
+
+Contributing
+-----------
+1. Development Guidelines
+   - Code style standards
+   - Documentation requirements
+   - Testing procedures
+   - Review process
+
+2. Version Control
+   - Branch management
+   - Commit conventions
+   - Release process
+   - Change tracking
+
+3. Testing
+   - Unit tests
+   - Integration tests
+   - Performance tests
+   - Security tests
+
+License and Legal
+----------------
+1. License Information
+   - MIT License
+   - Usage restrictions
+   - Distribution terms
+   - Modification rights
+
+2. Legal Compliance
+   - Data protection
+   - Privacy policy
+   - Terms of service
+   - User agreements
+
+Contact and Support
+-----------------
+1. Technical Support
+   - Issue reporting
+   - Bug tracking
+   - Feature requests
+   - Documentation updates
+
+2. Community
+   - User forums
+   - Discussion groups
+   - Knowledge base
+   - Tutorial resources
+
+This documentation is maintained by the development team and should be updated regularly to reflect changes in the application. 
